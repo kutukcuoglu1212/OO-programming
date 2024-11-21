@@ -19,8 +19,8 @@ namespace OO_programming.Tests
             // Tax rate (Y: with threshold)
             string taxRate = "Y";
             // Rates used for tax calculation
-            float RateA = 0.219f;
-            float RateB = 74.8369f;
+            float RateA = 0.2100f;
+            float RateB = 83.0635f;
             // List of threshold rates for tax calculations
             List<TaxRateWithThreshold> taxRatesWithThreshold = new List<TaxRateWithThreshold>
             {
@@ -38,13 +38,13 @@ namespace OO_programming.Tests
             Assert.AreEqual(750.0f, paySlip.TotalPay); //TotalPay
             // Check if the tax amount is calculated correctly
             var taxAmount = (((paySlip.TotalPay + 0.99f) * RateA)) - RateB; // TaxAmount
-            Assert.AreEqual(89.6299133f, taxAmount);  // TaxAmount
+            Assert.AreEqual(89.62991f, taxAmount);  // TaxAmount
             // Check if the gross pay is calculated correctly
-            Assert.AreEqual(746.620117f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
+            Assert.AreEqual(746.62009f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
             // Check if the Superannuation amount is calculated correctly
             Assert.AreEqual(86.25f, paySlip.Superannuation); //Superannuation
             // Check if the tax amount per hour is calculated correctly
-            Assert.AreEqual(2.98766375f, taxAmount / hoursWorked); //TaxPerHour
+            Assert.AreEqual(2.9876636667f, taxAmount / hoursWorked); //TaxPerHour
         }
 
         [Test]
@@ -57,14 +57,14 @@ namespace OO_programming.Tests
             // Tax rate (N: no threshold)
             string taxRate = "N";
             // Rates used for tax calculation
-            float RateA = 0.3477f;
-            float RateB = 64.4297f;
+            float RateA = 0.2190f;
+            float RateB = 110.8847f;
             // List of threshold rates for tax calculations
             List<TaxRateWithThreshold> taxRatesWithThreshold = new List<TaxRateWithThreshold>();
             // List of non-threshold rates for tax calculations
             List<TaxRateNoThreshold> taxRatesNoThreshold = new List<TaxRateNoThreshold>
             {
-                new TaxRateNoThreshold { WeeklyEarningsLower = 515, WeeklyEarningsUpper = 932, RateA = RateA, RateB = RateB }
+                new TaxRateNoThreshold { WeeklyEarningsLower = 371, WeeklyEarningsUpper = 515, RateA = RateA, RateB = RateB }
             };
 
             // Act
@@ -76,13 +76,13 @@ namespace OO_programming.Tests
             Assert.AreEqual(750.0f, paySlip.TotalPay); //TotalPay
             // Check if the tax amount is calculated correctly
             var taxAmount = (((paySlip.TotalPay + 0.99f) * RateA)) - RateB; // TaxAmount
-            Assert.AreEqual(196.689529f, taxAmount);  // TaxAmount
+            Assert.AreEqual(196.6895f, taxAmount);  // TaxAmount
             // Check if the gross pay is calculated correctly
-            Assert.AreEqual(639.560486f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
+            Assert.AreEqual(640.558f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
             // Check if the Superannuation amount is calculated correctly
             Assert.AreEqual(86.25f, paySlip.Superannuation); //Superannuation
             // Check if the tax amount per hour is calculated correctly
-            Assert.AreEqual(6.55631781f, taxAmount / hoursWorked); //TaxPerHour
+            Assert.AreEqual(6.5563166667f, taxAmount / hoursWorked); //TaxPerHour
         }
 
         [Test]
@@ -95,14 +95,14 @@ namespace OO_programming.Tests
             // Tax rate (N: no threshold)
             string taxRate = "N";
             // Rates used for tax calculation
-            float RateA = 0.19f;
-            float RateB = 0.19f;
+            float RateA = 0.2348f;
+            float RateB = 83.1469f;
             // List of threshold rates for tax calculations
             List<TaxRateWithThreshold> taxRatesWithThreshold = new List<TaxRateWithThreshold>();
             // List of non-threshold rates for tax calculations
             List<TaxRateNoThreshold> taxRatesNoThreshold = new List<TaxRateNoThreshold>
             {
-                new TaxRateNoThreshold { WeeklyEarningsLower = 0, WeeklyEarningsUpper = 88, RateA = RateA, RateB = RateB }
+                new TaxRateNoThreshold { WeeklyEarningsLower = 88, WeeklyEarningsUpper = 371, RateA = RateA, RateB = RateB }
             };
 
             // Act
@@ -116,7 +116,7 @@ namespace OO_programming.Tests
             var taxAmount = (((paySlip.TotalPay + 0.99f) * RateA)) - RateB; // TaxAmount
             Assert.AreEqual(4.7481f, taxAmount);  // TaxAmount
             // Check if the gross pay is calculated correctly
-            Assert.AreEqual(23.1268997f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
+            Assert.AreEqual(23.1269f, paySlip.TotalPay - taxAmount + paySlip.Superannuation);  // GrossPay
             // Check if the Superannuation amount is calculated correctly
             Assert.AreEqual(2.875f, paySlip.Superannuation); //Superannuation
             // Check if the tax amount per hour is calculated correctly
